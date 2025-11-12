@@ -16,7 +16,7 @@ header {
   text-align: center;
   padding: 2rem 1rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  contain: layout paint style; /* ✅ prevents global reflow */
+  contain: layout paint style;
 }
 
 header h1 {
@@ -38,7 +38,7 @@ header nav a:hover {
 /* Section */
 section {
   padding: 60px 20px;
-  contain: layout paint style; /* ✅ isolate layout per section */
+  contain: layout paint style;
 }
 
 section h2 {
@@ -53,12 +53,15 @@ section h2 {
   overflow: hidden;
   box-shadow: 0 3px 8px rgba(0,0,0,0.1);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  will-change: transform; /* ✅ prepares GPU for smooth hover */
-  min-height: 350px; /* ✅ avoids layout jumps */
+  will-change: transform;
+  min-height: 350px;
+  background: #fff;
+  margin: 20px auto;
+  max-width: 600px;
 }
 
 .card:hover {
-  transform: translate3d(0, -5px, 0); /* ✅ GPU animation */
+  transform: translate3d(0, -5px, 0);
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
@@ -69,16 +72,42 @@ section h2 {
   display: block;
 }
 
+.card-body {
+  padding: 20px;
+}
+
 /* Buttons */
 .btn-nature {
   background-color: #2e7d32;
   color: white;
   border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
   transition: background-color 0.2s ease-in-out;
 }
 
 .btn-nature:hover {
   background-color: #1b5e20;
+}
+
+/* Special Recover Button */
+.btn-recover {
+  background: linear-gradient(135deg, #43a047, #2e7d32);
+  color: #fff !important;
+  padding: 10px 22px;
+  border-radius: 25px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(46,125,50,0.3);
+  transition: all 0.3s ease-in-out;
+  display: inline-block;
+}
+
+.btn-recover:hover {
+  background: linear-gradient(135deg, #1b5e20, #2e7d32);
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(27,94,32,0.4);
 }
 
 /* Footer */
@@ -89,7 +118,7 @@ footer {
   padding: 15px;
   font-size: 0.9rem;
   margin-top: 40px;
-  contain: layout paint style; /* ✅ isolate footer reflows */
+  contain: layout paint style;
 }
 
 /* Responsive */
